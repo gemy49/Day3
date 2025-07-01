@@ -82,7 +82,7 @@ export default function ProductListScreen() {
   );
 
   const ProductCard = ({ item }) => (
-    <View style={[styles.card, { width: isVertical ? '90%' : 200 }]}>
+    <View style={[styles.card, { width: isVertical ? '90%' : 200 }]}> 
       <Image source={{ uri: item.thumbnail }} style={styles.image} />
       <Text style={styles.title} numberOfLines={1}>{item.title}</Text>
       <Text style={styles.subtitle}>{item.price}$</Text>
@@ -90,10 +90,9 @@ export default function ProductListScreen() {
   );
 
   return isVertical ? (
-    <ScrollView
+    <ScrollView 
       contentContainerStyle={{ paddingBottom: 30 }}
-      onScroll={({ nativeEvent }) => {
-        const { layoutMeasurement, contentOffset, contentSize } = nativeEvent;
+      onScroll={() => {
         const isEnd = layoutMeasurement.height + contentOffset.y >= contentSize.height - 20;
         if (isEnd) loadMore();
       }}
@@ -121,30 +120,30 @@ export default function ProductListScreen() {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
-     justifyContent: 'space-between',
-      alignItems: 'center', 
-      paddingHorizontal: 10,
-       paddingTop: 40
+     justifyContent: 'space-between', 
+     alignItems: 'center',
+      paddingHorizontal: 10, 
+      paddingTop: 40
   },
   headerTitle: { 
-    fontSize: 24, 
-    fontWeight: 'bold'
-   },
+    fontSize: 24,
+     fontWeight: 'bold'
+     },
   iconRow: {
     flexDirection: 'row',
      justifyContent: 'space-between', 
      alignItems: 'center',
-      paddingHorizontal: 30,
+      paddingHorizontal: 30, 
       paddingVertical: 20
   },
   iconCircle: {
     width: 50,
-     height: 50, 
-     borderRadius: 25,
-      backgroundColor: 'lightgray', 
-      justifyContent: 'center',
-       alignItems: 'center',
-        marginHorizontal: 5
+     height: 50,
+      borderRadius: 25,
+       backgroundColor: 'lightgray', 
+       justifyContent: 'center',
+        alignItems: 'center',
+         marginHorizontal: 5
   },
   banner: {
     width: '95%',
@@ -156,57 +155,55 @@ const styles = StyleSheet.create({
   },
   bannerContent: {
      alignItems: 'center',
-      paddingHorizontal: 30
+      paddingHorizontal: 30 
     },
-  bannerText: {
-     fontSize: 26,
-      fontWeight: 'bold',
-       color: 'white', 
-       textAlign: 'center'
-       },
-  bannerSubText: {
-     fontSize: 16,
+  bannerText: { 
+    fontSize: 26,
+     fontWeight: 'bold',
+      color: 'white', 
+      textAlign: 'center' 
+    },
+  bannerSubText: { 
+    fontSize: 16,
      color: 'white',
       textAlign: 'center'
      },
   featuredHeader: {
     flexDirection: 'row',
      padding: 20,
-      borderTopLeftRadius: 10,
-       borderTopRightRadius: 10, 
+      borderTopLeftRadius: 10, 
+      borderTopRightRadius: 10,
        justifyContent: 'space-between',
         alignItems: 'center'
   },
   featuredTitle: { 
     fontSize: 18,
-     fontWeight: 'bold'
-     },
+     fontWeight: 'bold' 
+    },
   featuredLink: {
-     fontSize: 15, 
-     fontWeight: 'bold',
-      color: 'gray' },
+     fontSize: 15,
+      fontWeight: 'bold',
+       color: 'gray'
+       },
   card: {
     height: 200,
-     margin: 10, 
-     backgroundColor: 'lightgray',
-      padding: 10,
-       borderRadius: 10,
-       alignItems: 'center', 
-       justifyContent: 'center', 
-       alignSelf: 'center'
+     margin: 10,
+      backgroundColor: 'lightgray',
+       padding: 10, borderRadius: 10,
+        alignItems: 'center',
+         justifyContent: 'center',
+          alignSelf: 'center'
   },
   image: {
      width: 180,
       height: 120,
-       borderRadius: 8
-       },
+       borderRadius: 8 
+      }
+       ,
   title: {
+     marginTop: 10, fontWeight: 'bold', textAlign: 'center' },
+  subtitle: {
      marginTop: 10,
-      fontWeight: 'bold',
-       textAlign: 'center' 
-      },
-  subtitle: { marginTop: 10,
      fontWeight: 'bold',
-      alignSelf: 'flex-start'
-     }
+     alignSelf: 'flex-start' }
 });
